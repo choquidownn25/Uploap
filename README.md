@@ -1,4 +1,5 @@
-# templete-hexagonal
+# Upload templete-hexagonal
+Crear un crud y tambien sube una imagen al servidor
 
 ![userrolemembership1](https://github.com/choquidownn25/Uploap/blob/main/img/Post.jpg)
 
@@ -11,8 +12,9 @@
 - Lombok
 - JPA
 - Struct Map
+- Model Mapper
 - Validation
-- Swagger 2
+- Swagger 
 
 
 # Development Tools & Environment
