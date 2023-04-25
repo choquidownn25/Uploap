@@ -5,10 +5,8 @@ import org.example.mappers.ProductoMapper;
 import org.example.repository.ProductoRepository;
 import org.exemple.data.ProductoDto;
 import org.exemple.ports.spi.ProductoPersistencePort;
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -21,7 +19,7 @@ public class ProductoJpaAdapter implements ProductoPersistencePort {
     @Override
     public ProductoDto addProductoDto(ProductoDto productoDto) {
         // convert DTO to Entity
-        ModelMapper modelMapper = null;
+
         Producto postRequest = ProductoMapper.INSTANCE.productoToProductoDto(productoDto);
         Producto productoSave = productoRepository.save(postRequest);
         ProductoDto retornProductoDto = ProductoMapper.INSTANCE.productoDtoToProducto(productoSave);
@@ -30,7 +28,7 @@ public class ProductoJpaAdapter implements ProductoPersistencePort {
 
     @Override
     public ProductoDto updateProductoDto(ProductoDto productoDto) {
-        ModelMapper modelMapper = null;
+
         Producto postRequest = ProductoMapper.INSTANCE.productoToProductoDto(productoDto);
         Producto productoSave = productoRepository.save(postRequest);
         ProductoDto retornProductoDto = ProductoMapper.INSTANCE.productoDtoToProducto(productoSave);
