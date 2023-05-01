@@ -19,7 +19,7 @@ import { EmpDetailComponent } from './emp-detail/emp-detail.component';
 })
 export class EmpleadoComponent implements OnInit , AfterViewInit  {
   selection = new SelectionModel<Empleado>(true, []);
-
+  public displayedColumn: any;
   displayedColumns = ['id', 'nombre', 'apellido', 'fechaNacimiento', 'foto', 'estadocivil', 'tieneHermanos', 'actions'];
   //public productos = new MatTableDataSource<Empleado>()
   public personas = new MatTableDataSource<Empleado>()
@@ -143,7 +143,10 @@ export class EmpleadoComponent implements OnInit , AfterViewInit  {
       
     }
   ngOnInit(): void {
+    this.displayedColumn = this.getDisplayedColumns();
     this.getAllPersona();
   }
-
+  getDisplayedColumns() {
+    return  ['id', 'nombre', 'apellido', 'fechaNacimiento', 'foto', 'estadocivil', 'tieneHermanos', 'actions'];
+  }
 }

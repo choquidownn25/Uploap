@@ -28,4 +28,7 @@ export class EmpDetailComponent {
       onNoClick(): void {
       this.dialogRef.close();
       }
+      print() {
+        window.print();
+      }
 }
