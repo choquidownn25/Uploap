@@ -16,9 +16,11 @@ Crear un crud y tambien sube una imagen al servidor
 - Model Mapper
 - Validation
 - Swagger 
+- Visual Code
+- Angular Version 15
 
 
 # Development Tools & Environment
-
+- **Visual Code (https://code.visualstudio.com/)
 - **IntelliJ IDEA 2021.1.3 (Community Edition). (https://www.jetbrains.com/idea/promo/)
 - **Tabnine. (https://www.tabnine.com/)
