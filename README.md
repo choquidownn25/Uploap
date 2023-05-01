@@ -2,6 +2,7 @@
 Crear un crud y tambien sube una imagen al servidor
 
 ![userrolemembership1](https://github.com/choquidownn25/Uploap/blob/main/img/Post.jpg)
+![userrolemembership2](https://github.com/choquidownn25/Uploap/blob/main/img/Crud.jpg)
 
 # Features
 
