@@ -27,7 +27,7 @@ public class Persona {
     @Column(name = "foto", nullable = false)
     private String foto;
     @Column(name = "estadocivil", nullable = false)
-    private int estoCivil;
+    private int estadocivil;
     @Column(name = "tienehermanos", nullable = false)
     private boolean tieneHermanos;
 

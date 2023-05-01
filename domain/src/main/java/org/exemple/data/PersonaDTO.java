@@ -13,9 +13,8 @@ public class PersonaDTO {
     private Integer id;
     private String nombre;
     private String apellido;
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date fechaNacimiento;
     private String foto;
-    private int estoCivil;
+    private int estadocivil;
     private boolean tieneHermanos;
 }

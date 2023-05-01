@@ -23,6 +23,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+@CrossOrigin(origins = { "http://localhost:4200" })
 @RestController
 @RequestMapping("/file")
 public class FileController {
@@ -33,7 +34,7 @@ public class FileController {
     private ModelMapper modelMapper;
     @Value("${photos}")
     private String pathPhoto;
-    
+
     @PostMapping("/save")
     public ResponseEntity<PersonaDTOResponse> saveUser(@RequestPart("file") MultipartFile multipartFile,PersonaDTORequest file) throws IOException {
         PersonaDTOResponse response = new PersonaDTOResponse();
@@ -44,7 +45,7 @@ public class FileController {
         //user.setPhotos(fileName);
 
         String uploadDir = pathPhoto + ulid.toString()+ file.getNombre();
-
+        personaDTOResponse.setFoto(uploadDir);
         FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
         response = personaServicePort.addPersona(personaDTOResponse);
         PersonaDTOResponse personaDTORes = this.modelMapper.map(file, response.getClass());
@@ -61,7 +62,7 @@ public class FileController {
             return   new ResponseEntity<PersonaDTOResponse>(personaDTORes, HttpStatus.BAD_REQUEST);
         }
     }
-    @PostMapping("/update")
+    @PutMapping("/update")
     public ResponseEntity<PersonaDTOResponse> updateUser(@RequestPart("file") MultipartFile multipartFile,PersonaDTORequest file) throws IOException {
         PersonaDTOResponse response = new PersonaDTOResponse();
         PersonaDTOResponse personaDTOResponse = this.modelMapper.map(file, PersonaDTOResponse.class);
@@ -71,7 +72,7 @@ public class FileController {
         //user.setPhotos(fileName);
 
         String uploadDir = pathPhoto+ ulid.toString()+ file.getNombre();
-
+        personaDTOResponse.setFoto(uploadDir);
         FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
         response = personaServicePort.updatePersona(personaDTOResponse);
         PersonaDTOResponse personaDTORes = this.modelMapper.map(file, response.getClass());
@@ -105,5 +106,10 @@ public class FileController {
             return new ResponseEntity<PersonaDTO>(personaDTOResponse,HttpStatus.OK);
         else
             return new ResponseEntity<PersonaDTO>(personaDTOResponse, HttpStatus.BAD_REQUEST);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public void deleteTicket(@PathVariable Integer id){
+        personaServicePort.deletePersonaDTO(id);
     }
 }
