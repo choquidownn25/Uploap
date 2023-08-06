@@ -23,7 +23,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-@CrossOrigin(origins = { "http://localhost:4200" })
+//@CrossOrigin(origins = { "http://localhost:4200" })
+@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
 @RestController
 @RequestMapping("/file")
 public class FileController {
@@ -93,7 +94,7 @@ public class FileController {
     public ResponseEntity<List<PersonaDTO>>getPersonaDTO(){
         List<PersonaDTO> personaDTOList = new ArrayList<>();
         personaDTOList=personaServicePort.getPersonaDTOs();
-        if(personaDTOList.size()>0)
+        if(personaDTOList.size()>=0)
             return new ResponseEntity<List<PersonaDTO>>(personaDTOList, HttpStatus.OK);
         else
             return new ResponseEntity<List<PersonaDTO>>(personaDTOList, HttpStatus.BAD_REQUEST);

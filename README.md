@@ -1,9 +1,7 @@
-# Upload templete-hexagonal
-Crear un crud y tambien sube una imagen al servidor
+# templete-hexagonal
 
-![userrolemembership1](https://github.com/choquidownn25/Uploap/blob/main/img/Post.jpg)
-![userrolemembership2](https://github.com/choquidownn25/Uploap/blob/main/img/Crud.jpg)
-
+![userrolemembership1](https://github.com/choquidownn25/templete-hexagonal/blob/main/img/List.jpg)
+![userrolemembership2](https://github.com/choquidownn25/templete-hexagonal/blob/main/img/Post.jpg)
 # Features
 
 - spring initializr https://start.spring.io/
@@ -13,14 +11,11 @@ Crear un crud y tambien sube una imagen al servidor
 - Lombok
 - JPA
 - Struct Map
-- Model Mapper
 - Validation
-- Swagger 
-- Visual Code
-- Angular Version 15
+- Swagger 2
 
 
 # Development Tools & Environment
-- **Visual Code (https://code.visualstudio.com/)
+
 - **IntelliJ IDEA 2021.1.3 (Community Edition). (https://www.jetbrains.com/idea/promo/)
 - **Tabnine. (https://www.tabnine.com/)
