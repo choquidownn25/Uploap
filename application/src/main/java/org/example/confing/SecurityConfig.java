@@ -2,6 +2,7 @@ package org.example.confing;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -20,7 +21,8 @@ public class SecurityConfig {
                 .csrf().disable()
                 .cors().and()
                 .authorizeRequests()
-                .antMatchers("/producto/**").permitAll() // Allow access to URLs starting with /public/
+                .antMatchers("/producto/**").hasAnyRole("ADMIN", "CUSTOMER") // Allow access to URLs starting with /public // Allow access to URLs starting with /public/
+                .antMatchers(HttpMethod.GET, "/file/**").hasRole("ADMIN")
                 .anyRequest()
                 .authenticated()
                 .and()
@@ -36,7 +38,13 @@ public class SecurityConfig {
                 .roles("ADMIN")
                 .build();
 
-        return new InMemoryUserDetailsManager(admin);
+        UserDetails costumer = User.builder()
+                .username("costumer")
+                .password(passwordEncoder().encode("costumer123"))
+                .roles("COSTUMER")
+                .build();
+
+        return new InMemoryUserDetailsManager(admin, costumer);
     }
 
     @Bean
