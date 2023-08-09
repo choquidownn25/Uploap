@@ -2,14 +2,13 @@ package org.example.entity;
 import lombok.*;
 import javax.persistence.*;
 import java.time.LocalDateTime;
+
 @Entity
 @Table(name = "user_role")
 @IdClass(UserRoleId.class)
-@Data
-@AllArgsConstructor
+@Getter
+@Setter
 @NoArgsConstructor
-@Builder
-@ToString
 public class UserRoleEntity {
     @Id
     @Column(nullable = false, length = 20)

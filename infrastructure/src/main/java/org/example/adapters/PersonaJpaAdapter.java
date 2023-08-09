@@ -6,6 +6,7 @@ import org.example.repository.PersonaRepository;
 import org.exemple.data.PersonaDTO;
 import org.exemple.ports.spi.PersonaPersistencePort;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -34,7 +35,7 @@ public class PersonaJpaAdapter implements PersonaPersistencePort {
     public void deletePersonaDTO(Integer id) {
         personaRepository.deleteById(id);
     }
-
+    @Secured("ROLE_ADMIN")
     @Override
     public List<PersonaDTO> getPersonaDTOs() {
         //Lista todos los registros
